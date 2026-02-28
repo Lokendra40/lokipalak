@@ -5,6 +5,72 @@ const password = "11-12";
 const nextMeetStorageKey = "loveStoryNextMeetDate";
 const defaultMissYouNumber = "6350631658";
 let nextDate = localStorage.getItem(nextMeetStorageKey) || defaultNextDate;
+// --- Firestore sync (paste below nextDate line) ---
+const CLOUD_DOC = sharedDoc; // from firebase-config.js
+const SYNC_FLAG = "loveStoryCloudLoaded";
+const TRACK_PREFIX = "loveStory";
+
+function collectLoveStoryState() {
+  const data = {};
+  for (let i = 0; i < localStorage.length; i += 1) {
+    const k = localStorage.key(i);
+    if (!k) continue;
+    if (k.startsWith(TRACK_PREFIX)) data[k] = localStorage.getItem(k);
+  }
+  return data;
+}
+
+async function pushStateToCloud() {
+  if (!CLOUD_DOC) return;
+  try {
+    await CLOUD_DOC.set(
+      {
+        data: collectLoveStoryState(),
+        updatedAt: Date.now(),
+      },
+      { merge: true }
+    );
+  } catch (e) {
+    console.error("Cloud push failed:", e);
+  }
+}
+
+async function pullStateFromCloudOnce() {
+  if (!CLOUD_DOC) return;
+  if (sessionStorage.getItem(SYNC_FLAG) === "1") return;
+
+  try {
+    const snap = await CLOUD_DOC.get();
+    if (snap.exists) {
+      const cloud = snap.data()?.data || {};
+      Object.keys(cloud).forEach((k) => {
+        if (k.startsWith(TRACK_PREFIX) && typeof cloud[k] === "string") {
+          localStorage.setItem(k, cloud[k]);
+        }
+      });
+    }
+    sessionStorage.setItem(SYNC_FLAG, "1");
+    location.reload();
+  } catch (e) {
+    console.error("Cloud pull failed:", e);
+  }
+}
+
+// Patch localStorage writes so every change syncs to cloud
+const _setItem = localStorage.setItem.bind(localStorage);
+localStorage.setItem = function (key, value) {
+  _setItem(key, value);
+  if (String(key).startsWith(TRACK_PREFIX)) pushStateToCloud();
+};
+
+const _removeItem = localStorage.removeItem.bind(localStorage);
+localStorage.removeItem = function (key) {
+  _removeItem(key);
+  if (String(key).startsWith(TRACK_PREFIX)) pushStateToCloud();
+};
+
+pullStateFromCloudOnce();
+// --- end Firestore sync ---
 
 // Personalize simple text values.
 document.getElementById("herName").textContent = herName;
