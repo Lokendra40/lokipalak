@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Favorite Person</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <audio id="ourSong" loop>
+      <source src="assets/our-song.mp3" type="audio/mpeg" />
+    </audio>
+
+    <header class="hero reveal">
+      <p class="kicker">A website made with love</p>
+      <h1>For <span id="herName">My Love</span></h1>
+      <p class="subtitle">From Aloo Paratha to Chatori, every section is a piece of us.</p>
+      <div class="hero-actions">
+        <button id="musicToggle" class="btn primary">Play Our Song</button>
+        <button id="scrollStart" class="btn ghost">Start The Story</button>
+      </div>
+    </header>
+    <main>
+      <section id="timeline" class="section reveal">
+        <h2>Our Love Story</h2>
+        <div class="timeline-line"></div>
+        <div class="timeline-items">
+          <article id="dayMetItem" class="timeline-item">
+            <div class="dot"></div>
+            <h3>📅 The Day We Met</h3>
+            <p>11 December 2025, the day we first met and our story started slowly.</p>
+          </article>
+          <article id="firstChatItem" class="timeline-item">
+            <div class="dot"></div>
+            <h3>💬 Our First Chat</h3>
+            <p>14 December on Instagram: "basketball k sath badminton player bhi ho that's impressive". I laugh at this cringe line now, but it started us.</p>
+          </article>
+          <article id="numberExchangeItem" class="timeline-item">
+            <div class="dot"></div>
+            <h3>📱 Number Exchange Night</h3>
+            <p>31 December, 11:13 PM on Snapchat. That was the night we exchanged numbers, and on the same day we did our first video call on WhatsApp.</p>
+          </article>
+          <article id="favMemoriesItem" class="timeline-item">
+            <div class="dot"></div>
+            <h3>📸 Favorite Memories</h3>
+            <p>Scroll down for memory photos and little stories from our real moments.</p>
+          </article>
+        </div>
+        <div id="locationPlotBox" class="inside-joke-box">
+          <h3>😂 Location Plot Twist</h3>
+          <p>You wanted to hide your location, so you said Vasant Vihar, but your real location is Munirka. Now I know your real location, Chatori. Although both places are near, I still have proof of that lie.</p>
+          <figure class="proof-card">
+            <img src="assets/location-proof.jpg" alt="Chat proof of Vasant Vihar message" onerror="this.style.display='none';this.parentElement.classList.add('missing-proof');" />
+            <figcaption>Proof saved forever: "Vasant vihar" message.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="memories" class="section reveal">
+        <h2>Favorite Memories</h2>
+        <p class="section-intro">Click any memory photo to open the full story page.</p>
+        <div class="memory-grid">
+          <a class="memory-link" href="memory-cab.html">
+            <figure class="memory-card">
+              <img src="assets/cab-memory.jpg" alt="Our cab memory" />
+              <figcaption>First Date Cab Memory. Click photo to read full story.</figcaption>
+            </figure>
+          </a>
+          <a class="memory-link" href="memory-blue-poshak.html">
+            <figure class="memory-card">
+              <img src="assets/blue-poshak.jpg" alt="Blue poshak memory" />
+              <figcaption>Blue Poshak Moment. Click photo to read full story.</figcaption>
+            </figure>
+          </a>
+          <a class="memory-link" href="memory-number-night.html">
+            <figure class="memory-card">
+              <img src="assets/memory-3-amity.jpg" alt="Memory 3 at Amity College E3" />
+              <figcaption>13 February at Amity College E3. Story update coming soon.</figcaption>
+            </figure>
+          </a>
+          <a class="memory-link" href="memory-new-year-party.html">
+            <figure class="memory-card">
+              <img src="assets/new-year-party.jpg" alt="New year party memory" />
+              <figcaption>New Year party night, first video call, flying chair ride moment. Story coming soon.</figcaption>
+            </figure>
+          </a>
+        </div>
+      </section>
+
+      <section id="reasons" class="section reveal">
+        <h2>What I Adore About You</h2>
+        <p class="section-intro">Tap each beauty note to flip it.</p>
+        <div id="reasonsGrid" class="reasons-grid"></div>
+        <p class="section-intro">...and so on, there is always more to adore about you.</p>
+      </section>
+
+      <section id="game" class="section reveal">
+        <h2>Mini Game: Catch The Hearts</h2>
+        <p>Move left/right and catch hearts before time runs out.</p>
+        <div class="game-wrap">
+          <div class="game-meta">
+            <label for="gamePlayerSelect">Playing as:</label>
+            <select id="gamePlayerSelect">
+              <option value="Aloo Paratha">Aloo Paratha</option>
+              <option value="Chatori">Chatori</option>
+            </select>
+          </div>
+          <div class="game-hud">
+            <span>Score: <strong id="score">0</strong></span>
+            <span>Time: <strong id="time">30</strong>s</span>
+          </div>
+          <div class="high-score-box">
+            <span>Highest Score: <strong id="highScoreValue">0</strong></span>
+            <span>Made by: <strong id="highScoreBy">Not set</strong></span>
+          </div>
+          <div id="gameArea" class="game-area">
+            <div id="basket" class="basket">💌</div>
+          </div>
+          <button id="startGame" class="btn primary">Start Game</button>
+          <p id="gameResult" class="game-result"></p>
+        </div>
+      </section>
+
+      <section id="letter" class="section reveal letter">
+        <h2>Digital Love Letter</h2>
+        <p class="section-intro">A blank page for your heart. Write whenever you want.</p>
+        <article class="letter-editor">
+          <textarea
+            id="loveLetterInput"
+            placeholder="Write your love letter here..."></textarea>
+          <div class="letter-actions">
+            <button id="saveLoveLetter" class="btn primary">Save Letter</button>
+            <button id="clearLoveLetter" class="btn ghost">Clear</button>
+          </div>
+        </article>
+      </section>
+
+      <section id="future" class="section reveal">
+        <h2>Our Future Together</h2>
+        <div class="future-grid">
+          <div class="future-card"><h3>🌍 Future Trips</h3><p>Not decided yet.</p></div>
+          <div class="future-card"><h3>🏡 Dream House</h3><p>A quiet mountain home in Bir, Himachal, where we can live a peaceful remote life together.</p></div>
+          <div class="future-card"><h3>🎯 Goals Together</h3><p>Not decided yet.</p></div>
+          <div class="future-card"><h3>👵👴 Growing Old With You</h3><p>Same love, just more stories and silver hair.</p></div>
+        </div>
+        <div class="counters">
+          <div class="counter-box">
+            <p>Time Together Since First Meet</p>
+            <strong id="sinceDate">2025-12-11</strong>
+            <span id="timeTogether"></span>
+          </div>
+          <div class="counter-box">
+            <p>Countdown to Our Next Meet</p>
+            <strong id="nextDate">2026-03-14T19:00:00</strong>
+            <span id="nextDateCountdown"></span>
+            <div class="next-meet-controls">
+              <input id="nextMeetInput" type="datetime-local" />
+              <button id="saveNextMeet" class="btn ghost">Set Next Meet</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="movies" class="section reveal">
+        <h2>Movie Night Planner</h2>
+        <p class="section-intro">Add what we should watch next and what we already watched with ratings.</p>
+        <div class="movies-grid">
+          <article class="movie-card">
+            <h3>🎬 Watch Together Next</h3>
+            <div class="movie-form">
+              <input id="movieSuggestInput" type="text" placeholder="Movie name to watch together" />
+              <button id="addMovieSuggest" class="btn primary">Add to Watchlist</button>
+            </div>
+            <div id="movieSuggestList" class="movie-list"></div>
+          </article>
+          <article class="movie-card">
+            <h3>🍿 Already Watched + Rating</h3>
+            <div class="movie-form">
+              <input id="movieWatchedInput" type="text" placeholder="Watched movie name" />
+              <select id="movieRatingInput" aria-label="Movie rating">
+                <option value="5">5/5</option>
+                <option value="4">4/5</option>
+                <option value="3">3/5</option>
+                <option value="2">2/5</option>
+                <option value="1">1/5</option>
+              </select>
+              <button id="addMovieWatched" class="btn primary">Save Watched</button>
+            </div>
+            <div id="movieWatchedList" class="movie-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="scoreboard" class="section reveal">
+        <h2>Funny Couple Scoreboard</h2>
+        <p class="section-intro">A little fun tracker for us. Click +1 whenever it happens.</p>
+        <div class="scoreboard-grid">
+          <article class="score-card">
+            <h3>🔥 Total Fights</h3>
+            <p id="fightCount" class="score-value">0</p>
+            <button class="btn ghost score-btn" data-stat="fightCount">+1 Fight</button>
+          </article>
+          <article class="score-card">
+            <h3>🤝 Patch-ups</h3>
+            <p id="patchCount" class="score-value">0</p>
+            <button class="btn ghost score-btn" data-stat="patchCount">+1 Patch-up</button>
+          </article>
+          <article class="score-card">
+            <h3>😅 \"Sorry\" by Aloo Paratha</h3>
+            <p id="sorryMeCount" class="score-value">0</p>
+            <button class="btn ghost score-btn" data-stat="sorryMeCount">+1 Me</button>
+          </article>
+          <article class="score-card">
+            <h3>😌 \"Sorry\" by Chatori</h3>
+            <p id="sorryHerCount" class="score-value">0</p>
+            <button class="btn ghost score-btn" data-stat="sorryHerCount">+1 Her</button>
+          </article>
+        </div>
+        <div class="scoreboard-footer">
+          <p id="winnerLine">Currently winning: Peace and love 💖</p>
+          <button id="resetScores" class="btn primary">Reset Scoreboard</button>
+        </div>
+        <div class="remarks-board">
+          <h3>📝 Couple Remarks Board</h3>
+          <p class="section-intro">Write a cute note, a complaint, or a funny remark. It will stay saved.</p>
+          <div class="remarks-form">
+            <select id="remarkAuthor" aria-label="Who is writing">
+              <option value="Aloo Paratha">Aloo Paratha</option>
+              <option value="Chatori">Chatori</option>
+            </select>
+            <textarea id="remarkText" rows="3" placeholder="Write your remark here..."></textarea>
+            <div class="remarks-actions">
+              <button id="addRemark" class="btn primary">Save Remark</button>
+              <button id="clearRemarks" class="btn ghost">Clear All</button>
+            </div>
+          </div>
+          <div id="remarksList" class="remarks-list"></div>
+        </div>
+      </section>
+
+      <section id="surprise" class="section reveal">
+        <h2>Secret Surprise</h2>
+        <p class="section-intro">Solve this puzzle first to get the password.</p>
+        <div class="puzzle-wrap">
+          <div class="puzzle-item">
+            <label for="q1Metro">1. On which metro station we kissed first time?</label>
+            <select id="q1Metro">
+              <option value="">Choose one</option>
+              <option value="chandni chowk">Chandni Chowk</option>
+              <option value="haus khas">Haus Khas</option>
+              <option value="munirka">Munirka</option>
+              <option value="okhla bird sanctuary">Okhla Bird Sanctuary</option>
+            </select>
+          </div>
+          <div class="puzzle-item">
+            <label for="q2Birth">2. What is my birth date and month? (DD-MM)</label>
+            <input id="q2Birth" type="text" placeholder="Type answer" />
+          </div>
+          <div class="puzzle-item">
+            <label for="q3Items">3. How many items we eat on Chandni Chowk date?</label>
+            <select id="q3Items">
+              <option value="">Choose one</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+          <div class="puzzle-item">
+            <label for="q4Best">4. What is one best thing I like about you? (I like everything, but choose one)</label>
+            <select id="q4Best">
+              <option value="">Choose one</option>
+              <option value="eyes">Eyes</option>
+              <option value="smile">Smile</option>
+              <option value="cheek">Cheek</option>
+              <option value="ear">Ear</option>
+            </select>
+          </div>
+          <button id="checkPuzzle" type="button" class="btn primary">Check Answers</button>
+          <div id="puzzleResult" class="puzzle-result hidden">
+            <p>You unlocked it 💖</p>
+            <p>Secret Surprise Password: <strong id="puzzlePassword"></strong></p>
+          </div>
+        </div>
+        <p>Enter the surprise password and try to guess it.</p>
+        <div class="password-wrap" id="passwordWrap">
+          <input id="passwordInput" type="password" placeholder="Example: 11-12" />
+          <button id="unlockBtn" class="btn primary">Unlock</button>
+        </div>
+        <div class="locked-message hidden" id="secretMessage">
+          <p>I made this for you because you mean everything to me.</p>
+          <h3>Will you go on a date with me?</h3>
+        </div>
+      </section>
+
+      <section id="finale" class="section finale reveal">
+        <h2 class="final-text">I love you</h2>
+        <div class="heart-burst" id="heartBurst"></div>
+        <p>You are my favorite person.</p>
+      </section>
+    </main>
+
+    <button id="missYouBtn" class="miss-you-btn" title="Send miss you ping">Miss You 💌</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
