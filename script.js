@@ -6,7 +6,8 @@ const nextMeetStorageKey = "loveStoryNextMeetDate";
 const defaultMissYouNumber = "6350631658";
 let nextDate = localStorage.getItem(nextMeetStorageKey) || defaultNextDate;
 // --- Firestore sync (paste below nextDate line) ---
-const CLOUD_DOC = sharedDoc; // from firebase-config.js
+const CLOUD_DOC = (typeof sharedDoc !== "undefined") ? sharedDoc : null;
+ // from firebase-config.js
 const SYNC_FLAG = "loveStoryCloudLoaded";
 const TRACK_PREFIX = "loveStory";
 
