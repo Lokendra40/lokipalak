@@ -13,6 +13,17 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="mode-switcher">
+  <label for="relationshipMode">Current Status</label>
+  <select id="relationshipMode" aria-label="Current relationship status">
+    <option value="relationship">In Relationship</option>
+    <option value="figuring">Not Breakup, Still Figuring Out</option>
+    <option value="on-break">On a Break</option>
+    <option value="breakup">Breakup</option>
+    <option value="reconnecting">Working to Reconnect</option>
+  </select>
+  <p id="modeStatusLine">Mode: In Relationship 💖</p>
+</div>
     <div class="bg-orb orb-1"></div>
     <div class="bg-orb orb-2"></div>
 
@@ -306,5 +317,7 @@
 <script src="https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js"></script>
 <script src="script.js"></script>
-  </body>
+
+  
+ </body>
 </html>
