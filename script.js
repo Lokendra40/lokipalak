@@ -6,6 +6,41 @@ const nextMeetStorageKey = "loveStoryNextMeetDate";
 const defaultMissYouNumber = "6350631658";
 let nextDate = localStorage.getItem(nextMeetStorageKey) || defaultNextDate;
 // --- Firestore sync (paste below nextDate line) ---
+const relationshipModeStorageKey = "loveStoryRelationshipMode";
+const relationshipModeSelect = document.getElementById("relationshipMode");
+const modeStatusLine = document.getElementById("modeStatusLine");
+
+const modeLabels = {
+  relationship: "Mode: In Relationship 💖",
+  figuring: "Mode: Not Breakup, Still Figuring Out 🌤️",
+  "on-break": "Mode: On a Break 🌙",
+  breakup: "Mode: Breakup 🌑",
+  reconnecting: "Mode: Working to Reconnect 🌱"
+};
+
+function applyRelationshipMode(mode) {
+  const valid = modeLabels[mode] ? mode : "relationship";
+  document.body.classList.remove(
+    "mode-relationship",
+    "mode-figuring",
+    "mode-on-break",
+    "mode-breakup",
+    "mode-reconnecting"
+  );
+  document.body.classList.add(`mode-${valid}`);
+  if (relationshipModeSelect) relationshipModeSelect.value = valid;
+  if (modeStatusLine) modeStatusLine.textContent = modeLabels[valid];
+  localStorage.setItem(relationshipModeStorageKey, valid);
+}
+
+applyRelationshipMode(localStorage.getItem(relationshipModeStorageKey) || "relationship");
+
+if (relationshipModeSelect) {
+  relationshipModeSelect.addEventListener("change", () => {
+    applyRelationshipMode(relationshipModeSelect.value);
+  });
+}
+
 const CLOUD_DOC = (typeof sharedDoc !== "undefined") ? sharedDoc : null;
  // from firebase-config.js
 const SYNC_FLAG = "loveStoryCloudLoaded";
