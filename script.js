@@ -137,8 +137,8 @@ document.getElementById("scrollStart").addEventListener("click", () => {
 const missYouBtn = document.getElementById("missYouBtn");
 if (missYouBtn) {
   missYouBtn.addEventListener("click", () => {
-    const message = `I miss you right now ❤️ (${new Date().toLocaleTimeString()})`;
-    window.location.href = `sms:${defaultMissYouNumber}?&body=${encodeURIComponent(message)}`;
+   window.location.href = "tel:6350631658";
+
   });
 }
 
