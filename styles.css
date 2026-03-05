@@ -984,3 +984,58 @@ body.mode-reconnecting {
     min-width: 0;
   }
 }
+.opening-note-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 10, 16, 0.68);
+  display: grid;
+  place-items: center;
+  z-index: 3000;
+  padding: 1rem;
+}
+
+.opening-note-card {
+  position: relative;
+  width: min(760px, 96vw);
+  max-height: min(88vh, 760px);
+  overflow: auto;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(216, 56, 107, 0.22);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  padding: 1.1rem 1.1rem 1rem;
+}
+
+.opening-note-tag {
+  margin: 0 0 0.35rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a4a63;
+  font-weight: 800;
+}
+
+.opening-note-card h3 {
+  margin: 0 0 0.6rem;
+}
+
+.opening-note-card p {
+  margin: 0.55rem 0;
+  line-height: 1.65;
+}
+
+.opening-note-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.55rem;
+  border: 0;
+  background: transparent;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #7f3b56;
+  cursor: pointer;
+}
+
+.opening-note-modal.hidden {
+  display: none;
+}
