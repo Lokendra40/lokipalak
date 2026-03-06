@@ -40,14 +40,7 @@ if (relationshipModeSelect) {
     applyRelationshipMode(relationshipModeSelect.value);
   });
 }
-const openingNoteModal = document.getElementById("openingNoteModal");
-const closeOpeningNoteBtn = document.getElementById("closeOpeningNote");
 
-if (closeOpeningNoteBtn && openingNoteModal) {
-  closeOpeningNoteBtn.addEventListener("click", () => {
-    openingNoteModal.classList.add("hidden");
-  });
-}
 
 const CLOUD_DOC = (typeof sharedDoc !== "undefined") ? sharedDoc : null;
  // from firebase-config.js
