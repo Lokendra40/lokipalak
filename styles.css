@@ -118,6 +118,46 @@ h1 span {
 .section {
   padding: 5rem 0;
 }
+.story-soon {
+  padding-top: 1rem;
+}
+
+.story-soon-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 243, 248, 0.82));
+  border: 1px solid rgba(255, 92, 138, 0.18);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 1.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-soon-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -50px -50px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 159, 104, 0.24), transparent 70%);
+  pointer-events: none;
+}
+
+.story-soon-tag {
+  margin: 0 0 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.story-soon-card p {
+  margin: 0.75rem 0 0;
+  max-width: 760px;
+  color: var(--soft);
+  line-height: 1.7;
+}
 
 .section h2 {
   font-size: clamp(1.8rem, 4vw, 2.9rem);
